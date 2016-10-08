@@ -24,3 +24,13 @@ a, a:visited {
 a:hover {
   color: #999;
 }
+.header {
+  color: #2D5BDE;
+}
+.list-group-item:first-child,
+.btn-success,
+.form-control {
+  border-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

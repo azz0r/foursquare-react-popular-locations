@@ -1,5 +1,7 @@
 /* ---- 4² ---- */
-.foursquare {}
+.foursquare {
+  font-family: normal 13px/140% "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;
+}
 
 .foursquare__results {}
 
@@ -8,7 +10,9 @@
 
 /* ---- Search ---- */
 .search {} /* Block */
-.search__field {} /* Element */
+.search__field { /* Element */
+  margin-left: 20px;
+}
 
 /* ---- Venues ---- */
 .venues {  /* Block */
@@ -16,9 +20,9 @@
   padding-right: 0;
 }
 .venues__list {} /* Element */
-.venues__venue {
+.venues__venue {  /* Element */
   border-radius: none;
-} /* Element */
+}
 
 
 /* ---- Venue ---- */
