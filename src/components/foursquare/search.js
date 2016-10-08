@@ -56,7 +56,7 @@ export default class Search extends React.Component {
               onKeyUp={this.onSearch}
               onKeyPress={this.onSearch}
             />
-            <i class="glyphicon glyphicon-user form-control-feedback"></i>
+            <i className="glyphicon glyphicon-search form-control-feedback"></i>
           </div>
         </div>
       </div>
