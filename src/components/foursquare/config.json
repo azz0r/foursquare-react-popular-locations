@@ -4,6 +4,5 @@
   "style": "foursquare",
   "version": "20140806",
   "apiUrl": "https://api.foursquare.com/v2/venues/explore",
-  "v": "20140806",
-  "near": "London, UK"
+  "v": "20140806"
 }
