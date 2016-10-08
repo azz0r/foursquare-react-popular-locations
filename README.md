@@ -3,6 +3,8 @@
 * Heavily modified for Guess-who game
 * Branched for Whitbread test (now named foursquare-react-popular-locations)
 
+[Demo here](https://azz0r.github.io/foursquare-react-popular-locations/)
+
 ### 📕 Index
 * [Installing](#installing)
 * [Launching](#launching)
