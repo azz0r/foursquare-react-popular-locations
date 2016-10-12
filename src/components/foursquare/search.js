@@ -29,7 +29,8 @@ export default class Search extends React.Component {
           if(err) return
           let venues = res.body.response.groups[0].items
           this.props.onSearchUpdated({
-            venues, query
+            venues, 
+            query,
           })
         })
     }, 500)
@@ -55,7 +56,7 @@ export default class Search extends React.Component {
     }
 
     const error = (err) => {
-      console.warn('ERROR(' + err.code + '): ' + err.message);
+      console.warn(`Error code: ${err.code}; Error message: ${err.message}`);
     }
 
     navigator.geolocation.getCurrentPosition(success, error, options);
@@ -82,7 +83,7 @@ export default class Search extends React.Component {
             <i className="glyphicon glyphicon-search form-control-feedback"></i>
           </div>
         </div>
-        <div className="col-xs-4 col-lg-2 location">
+        <div className="col-xs-4 col-sm-4 col-md-2 col-lg-2 location">
           <button
             className="location__button btn btn-success"
             title="Geo locate me"
