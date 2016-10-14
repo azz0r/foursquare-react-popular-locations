@@ -66,6 +66,8 @@
   },
   "dependencies": {
     "array-shuffle": "^1.0.1",
+    "babel-plugin-async-to-promises": "^1.0.5",
+    "benchmark": "^2.1.1",
     "cross-env": "^2.0.1",
     "lodash.debounce": "^4.0.8",
     "minimist": "^1.2.0",
