@@ -2,15 +2,14 @@ var path = require('path');
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-var paths = require('./paths');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var paths = require('./paths');
+var sassLoaders = require('./sass');
 
 module.exports = {
   devtool: 'eval',
-  plugins: [
-    "jsx-control-statements"
-  ],
   entry: [
     require.resolve('webpack-dev-server/client') + '?/',
     require.resolve('webpack/hot/dev-server'),
@@ -26,7 +25,7 @@ module.exports = {
   },
   resolve: {
     root: path.resolve(__dirname),
-    extensions: ['', '.js', '.json'],
+    extensions: ['', '.js', '.sass', '.json'],
     alias: {
       // This `alias` section can be safely removed after ejection.
       // We do this because `babel-runtime` may be inside `react-scripts`,
@@ -78,9 +77,8 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        include: [paths.appSrc, paths.appNodeModules],
-        loader: 'style!css!postcss'
+        test: /\.sass$/,
+        loader: ExtractTextPlugin.extract('style', sassLoaders.join('!'))
       },
       {
         test: /\.json$/,
@@ -93,21 +91,8 @@ module.exports = {
         include: paths.appImgs
       },
       {
-        test: /\.(ot|svg|woff|woff2)(\?.*)?$/,
-        include: [paths.appSrc, paths.appNodeModules],
-        loader: 'file',
-        query: {
-          name: 'static/media/[name].[ext]'
-        }
-      },
-      {
-        test: /\.(mp4|webm)(\?.*)?$/,
-        include: [paths.appSrc, paths.appNodeModules],
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: 'static/media/[name].[ext]'
-        }
+        test: /.jpe?g$|.gif$|.png$|.svg$|.woff$|.ttf$|.wav$|.mp3$/,
+        loader: require.resolve("file-loader") + "?name=[path][name].[ext]"
       }
     ]
   },
@@ -115,9 +100,11 @@ module.exports = {
     configFile: path.join(__dirname, 'eslint.js'),
     useEslintrc: false
   },
-  postcss: function() {
-    return [autoprefixer];
-  },
+  postcss: [
+    autoprefixer({
+      browsers: ['last 2 versions']
+    })
+  ],
   plugins: [
     new CopyWebpackPlugin([
       { from: paths.appImgs, to: paths.appBuild + '/static/imgs/' }

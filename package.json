@@ -69,11 +69,15 @@
     "babel-plugin-async-to-promises": "^1.0.5",
     "benchmark": "^2.1.1",
     "cross-env": "^2.0.1",
+    "file-loader": "^0.9.0",
     "lodash.debounce": "^4.0.8",
     "minimist": "^1.2.0",
+    "node-sass": "^3.4.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-modal": "^1.4.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
     "superagent": "^2.3.0"
   },
   "scripts": {

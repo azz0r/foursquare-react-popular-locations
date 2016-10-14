@@ -6,6 +6,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var url = require('url');
 var paths = require('./paths');
+var sassLoaders = require('./sass');
 
 var homepagePath = require(paths.appPackageJson).homepage;
 var publicPath = homepagePath ? url.parse(homepagePath).pathname : '/';
@@ -83,17 +84,13 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        include: [paths.appSrc, paths.appNodeModules],
-        // Disable autoprefixer in css-loader itself:
-        // https://github.com/webpack/css-loader/issues/281
-        // We already have it thanks to postcss.
-        loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss')
-      },
-      {
         test: /\.json$/,
         include: [paths.appSrc, paths.appNodeModules],
         loader: 'json'
+      },
+      {
+        test: /\.sass$/,
+        loader: ExtractTextPlugin.extract('style', sassLoaders.join('!'))
       },
       {
         test: /\.(jpg|png)$/,
@@ -105,15 +102,6 @@ module.exports = {
         include: [paths.appSrc, paths.appNodeModules],
         loader: 'file',
         query: {
-          name: 'static/media/[name].[hash:8].[ext]'
-        }
-      },
-      {
-        test: /\.(mp4|webm)(\?.*)?$/,
-        include: [paths.appSrc, paths.appNodeModules],
-        loader: 'url',
-        query: {
-          limit: 10000,
           name: 'static/media/[name].[hash:8].[ext]'
         }
       }
