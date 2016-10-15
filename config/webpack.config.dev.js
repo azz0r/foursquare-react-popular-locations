@@ -1,12 +1,13 @@
-var path = require('path');
-var autoprefixer = require('autoprefixer');
-var webpack = require('webpack');
+var path = require('path')
+var autoprefixer = require('autoprefixer')
+var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var paths = require('./paths');
-var sassLoaders = require('./sass');
+var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
+var paths = require('./paths')
+var sassLoaders = require('./sass')
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
   devtool: 'eval',
@@ -107,6 +108,7 @@ module.exports = {
     })
   ],
   plugins: [
+    new DashboardPlugin(),
     new ExtractTextPlugin('[name].css'),
     new CopyWebpackPlugin([
       { from: paths.appImgs, to: paths.appBuild + '/static/imgs/' }

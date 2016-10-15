@@ -74,9 +74,7 @@ function setupCompiler(port) {
     var hasWarnings = stats.hasWarnings();
     if (!hasErrors && !hasWarnings) {
       console.log(chalk.green('Compiled successfully!'));
-      console.log();
       console.log('The app is running at http://localhost:' + port + '/');
-      console.log();
       return;
     }
 

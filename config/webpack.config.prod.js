@@ -7,6 +7,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var url = require('url');
 var paths = require('./paths');
 var sassLoaders = require('./sass');
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 var homepagePath = require(paths.appPackageJson).homepage;
 var publicPath = homepagePath ? url.parse(homepagePath).pathname : '/';
@@ -119,6 +120,7 @@ module.exports = {
     return [autoprefixer];
   },
   plugins: [
+    new DashboardPlugin(),
     new CopyWebpackPlugin([
       { from: paths.appImgs, to: paths.appBuild + '/static/imgs/' }
     ]),
