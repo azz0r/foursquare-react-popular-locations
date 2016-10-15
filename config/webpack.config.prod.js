@@ -151,8 +151,8 @@ module.exports = {
       output: {
         comments: false,
         screw_ie8: true
-      }
+      },
     }),
-    new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
+    new ExtractTextPlugin(paths.build.static+'/css/[name].[contenthash:8].css'),
   ]
 };
