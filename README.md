@@ -1,10 +1,3 @@
-# FourSquare popular locations
-* React codebase forked initially from: https://www.npmjs.com/package/create-react-redux-app (which is forked from create-react-app)
-* Heavily modified for Guess-who game
-* Branched for Whitbread test (now named foursquare-react-popular-locations)
-
-[Demo here](https://azz0r.github.io/foursquare-react-popular-locations/)
-
 ### 📕 Index
 * [Installing](#installing)
 * [Launching](#launching)
@@ -27,4 +20,4 @@ Powered by Mocha, Chai, Enzyme, Sinon.
 * Run unit tests ```npm run test:unit```
 * Run unit tests with watch, any changes result in a re-run ```npm run test:unit:watch```
 
-Tests are written by creating .spec files: `src/components/foursquare/__tests__/`
+Tests are written by creating .spec files: `src/components/4Q/__tests__/`
