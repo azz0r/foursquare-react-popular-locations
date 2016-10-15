@@ -79,7 +79,7 @@ export default class Search extends React.Component {
       <div className="search">
         <div className="row">
           <div className="col-xs-12">
-            <div className="col-xs-11 form-group has-feedback">
+            <div className="col-xs-11 search__container form-group has-feedback">
               <input
                 className="form-control search__field"
                 placeholder="Search"
@@ -91,7 +91,7 @@ export default class Search extends React.Component {
               />
               <i className="glyphicon glyphicon-search form-control-feedback"></i>
             </div>
-            <div className="col-xs-1 location">
+            <div className="col-xs-1 search__location">
               <button
                 className="location__button btn btn-success"
                 title="Geo locate me"
