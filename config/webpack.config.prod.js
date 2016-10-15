@@ -91,7 +91,8 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: sassLoaders
+        loaders: sassLoaders,
+        loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss')
       },
       {
         test: /\.(jpg|png)$/,
@@ -153,6 +154,6 @@ module.exports = {
         screw_ie8: true
       },
     }),
-    new ExtractTextPlugin(paths.build.static+'/css/[name].[contenthash:8].css'),
+    new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
   ]
 };
