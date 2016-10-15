@@ -13,7 +13,6 @@
     "test:unit:watch": "cross-env NODE_ENV=test babel-node test/watch.js unit"
   },
   "devDependencies": {
-    "node-sass": "^3.4.2",
     "app-module-path": "^1.1.0",
     "autoprefixer": "6.3.7",
     "babel-core": "6.11.4",
@@ -64,6 +63,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.5.3",
+    "node-sass": "^3.4.2",
     "opn": "4.0.2",
     "postcss-loader": "0.9.1",
     "promise": "7.1.1",
@@ -75,23 +75,25 @@
     "webpack": "1.13.1",
     "webpack-dashboard": "^0.2.0",
     "webpack-dev-server": "1.14.1",
-    "whatwg-fetch": "1.0.0"
+    "whatwg-fetch": "1.0.0",
+    "file-loader": "^0.9.0",
+    "glob": "^7.1.1",
+    "jsdom": "^9.6.0",
+    "cross-env": "^2.0.1",
+    "mocha": "^3.1.2",
+    "nodemon": "^1.11.0",
+    "minimist": "^1.2.0",
+    "style-loader": "^0.13.1",
+    "sass-loader": "^4.0.2"
   },
   "dependencies": {
     "array-shuffle": "^1.0.1",
     "babel-plugin-async-to-promises": "^1.0.5",
-    "benchmark": "^2.1.1",
-    "cross-env": "^2.0.1",
     "emptyfunction": "^1.0.0",
-    "file-loader": "^0.9.0",
     "lodash.debounce": "^4.0.8",
-    "minimist": "^1.2.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
-    "react-modal": "^1.4.0",
     "react-router": "^2.8.1",
-    "sass-loader": "^4.0.2",
-    "style-loader": "^0.13.1",
     "superagent": "^2.3.0"
   },
   "eslintConfig": {
