@@ -5,8 +5,7 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dashboard node ./scripts/start.js",
     "build": "NODE_ENV=production webpack-dashboard -- node ./scripts/build.js",
-    "test": "NODE_ENV=test mocha --compilers js:babel-core/register ./**/*.spec.js",
-    "test:watch": "cross-env NODE_ENV=test babel-node test/watch.js unit"
+    "test": "NODE_ENV=test mocha --compilers js:babel-core/register ./src/**/*.spec.js"
   },
   "devDependencies": {
     "app-module-path": "^1.1.0",
