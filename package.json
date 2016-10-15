@@ -52,7 +52,9 @@
     "glob": "^7.1.1",
     "gzip-size": "3.0.0",
     "html-webpack-plugin": "2.22.0",
+    "istanbul": "^0.4.5",
     "jsdom": "^9.6.0",
+    "jsdom-global": "^2.1.0",
     "json-loader": "0.5.4",
     "jsx-control-statements": "^3.1.4",
     "karma": "^0.13.22",
@@ -92,19 +94,5 @@
   },
   "eslintConfig": {
     "extends": "./config/eslint.js"
-  },
-  "babel": {
-    "presets": [
-      "react",
-      "es2015",
-      "stage-0"
-    ],
-    "plugins": [
-      "transform-runtime",
-      "transform-react-inline-elements",
-      "transform-react-remove-prop-types",
-      "jsx-control-statements",
-      "transform-react-constant-elements"
-    ]
   }
 }

@@ -3,8 +3,6 @@ require('app-module-path').addPath(`${__dirname}'./../`)
 import Minimist from 'minimist'
 import Mocha from 'mocha'
 import Glob from 'glob'
-import './utils/dom'
-var jsdom = require('jsdom').jsdom;
 
 const argv = Minimist(process.argv.slice(2), {
   alias: {
@@ -12,24 +10,6 @@ const argv = Minimist(process.argv.slice(2), {
     g: 'grep'
   },
 })
-
-
-var exposedProperties = ['window', 'navigator', 'document'];
-
-global.document = jsdom('');
-global.window = document.defaultView;
-Object.keys(document.defaultView).forEach((property) => {
-  if (typeof global[property] === 'undefined') {
-    exposedProperties.push(property);
-    global[property] = document.defaultView[property];
-  }
-});
-
-global.navigator = {
-  userAgent: 'node.js'
-};
-
-documentRef = document;
 
 const types = argv._
 const globPatterns = {
