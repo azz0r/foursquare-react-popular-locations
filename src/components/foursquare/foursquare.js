@@ -2,7 +2,7 @@ import React from 'react'
 import Venues from './venues'
 import Search from './search'
 import ResultsHeader from './results-header'
-import './stylesheets/foursquare'
+import './stylesheets/foursquare.scss'
 
 export default class FourSquare extends React.Component {
 

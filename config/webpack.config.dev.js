@@ -14,7 +14,8 @@ module.exports = {
     require.resolve('webpack-dev-server/client') + '?/',
     require.resolve('webpack/hot/dev-server'),
     require.resolve('./polyfills'),
-    path.join(paths.appSrc, 'index')
+    path.join(paths.appSrc, 'index'),
+    path.join(paths.appStylesheets, 'base')
   ],
   output: {
     // Next line is not used in dev but WebpackDevServer crashes without it:
@@ -25,7 +26,7 @@ module.exports = {
   },
   resolve: {
     root: path.resolve(__dirname),
-    extensions: ['', '.js', '.sass', '.json'],
+    extensions: ['', '.js', '.scss', '.json'],
     alias: {
       // This `alias` section can be safely removed after ejection.
       // We do this because `babel-runtime` may be inside `react-scripts`,
@@ -77,8 +78,8 @@ module.exports = {
         }
       },
       {
-        test: /\.sass$/,
-        loader: ExtractTextPlugin.extract('style', sassLoaders.join('!'))
+        test: /\.scss$/,
+        loaders: sassLoaders
       },
       {
         test: /\.json$/,
@@ -106,6 +107,7 @@ module.exports = {
     })
   ],
   plugins: [
+    new ExtractTextPlugin('[name].css'),
     new CopyWebpackPlugin([
       { from: paths.appImgs, to: paths.appBuild + '/static/imgs/' }
     ]),
