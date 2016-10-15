@@ -13,6 +13,7 @@
     "test:unit:watch": "cross-env NODE_ENV=test babel-node test/watch.js unit"
   },
   "devDependencies": {
+    "node-sass": "^3.4.2",
     "app-module-path": "^1.1.0",
     "autoprefixer": "6.3.7",
     "babel-core": "6.11.4",
@@ -81,15 +82,15 @@
     "babel-plugin-async-to-promises": "^1.0.5",
     "benchmark": "^2.1.1",
     "cross-env": "^2.0.1",
+    "emptyfunction": "^1.0.0",
     "file-loader": "^0.9.0",
     "lodash.debounce": "^4.0.8",
     "minimist": "^1.2.0",
-    "node-sass": "^3.4.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-modal": "^1.4.0",
+    "react-router": "^2.8.1",
     "sass-loader": "^4.0.2",
-    "scss-loader": "^0.0.1",
     "style-loader": "^0.13.1",
     "superagent": "^2.3.0"
   },

@@ -23,6 +23,9 @@ export default class FourSquare extends React.Component {
   render() {
     return (
       <div className="foursquare">
+      <header className="header">
+        <h1>FourSquare Popular Venues Search</h1>
+      </header>
         <div className="row foursquare__results">
           <Search onSearchUpdated={this.onSearchUpdated} />
           <If condition={this.state.venues.length > 0}>

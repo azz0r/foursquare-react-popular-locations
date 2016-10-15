@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import FourSquare from '../foursquare/foursquare'
 
-export default class App extends Component {
+export default class PageAbout extends Component {
+
+  displayName = "PageAbout"
+
   render() {
     return (
       <div className="container">
-        {this.props.children}
+        About Page
       </div>
     )
   }

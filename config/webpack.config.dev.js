@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 var path = require('path')
 var paths = require('./paths')
-
 require('./environment');
 const defaultConfig = require('./webpack.common');
 
