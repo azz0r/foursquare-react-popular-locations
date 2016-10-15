@@ -1,8 +1,6 @@
 var webpack = require('webpack')
 var path = require('path')
 var paths = require('./paths')
-var sassLoaders = require('./sass')
-
 require('./environment')
 const defaultConfig = require('./webpack.common')
 
@@ -26,7 +24,7 @@ devConfig.plugins.push(
 devConfig.module.loaders.push(
   {
     test: /\.scss$/,
-    loaders: sassLoaders,
+    loader: 'style!css!postcss!sass?sourceMap',
   }
 )
 module.exports = devConfig

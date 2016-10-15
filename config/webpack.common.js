@@ -10,17 +10,17 @@ module.exports = {
   output: {
     path: paths.appBuild,
     pathinfo: true,
-    filename: 'static/js/bundle.js',
+    filename: 'static/js/[name].[hash:8].js',
     publicPath: '/'
   },
   plugins: [
     new DashboardPlugin(),
-    new ExtractTextPlugin('static/css/[name].[id].css'),
+    new ExtractTextPlugin('static/css/[name].[hash:8].css'),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.PORT': JSON.stringify(process.env.PORT),
       'process.env.DEBUG': JSON.stringify(process.env.DEBUG),
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
     new HtmlWebpackPlugin({
       inject: true,
@@ -39,16 +39,16 @@ module.exports = {
       // if we don't have a good solution, we should just make `babel-runtime`
       // a dependency in generated projects.
       // See https://github.com/facebookincubator/create-react-app/issues/255
-      'babel-runtime/regenerator': require.resolve('babel-runtime/regenerator')
+      'babel-runtime/regenerator': require.resolve('babel-runtime/regenerator'),
     }
   },
   resolveLoader: {
     root: paths.ownNodeModules,
-    moduleTemplates: ['*-loader']
+    moduleTemplates: ['*-loader'],
   },
   postcss: [
     autoprefixer({
-      browsers: ['last 2 versions']
+      browsers: ['last 2 versions'],
     })
   ],
   module: {
@@ -57,26 +57,24 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         include: [
-          paths.appSrc
+          paths.appSrc,
         ],
         query: {
-          // https://github.com/babel/babel-loader#options
           cacheDirectory: true,
-          // https://babeljs.io/docs/usage/options/
           babelrc: false,
           presets: [
             'react',
             'es2015',
-            'stage-0'
+            'stage-0',
           ],
           plugins: [
             'transform-runtime',
             'jsx-control-statements',
             'transform-react-constant-elements',
             'transform-react-inline-elements',
-            'transform-react-remove-prop-types'
-          ]
-        }
+            'transform-react-remove-prop-types',
+          ],
+        },
       },
       {
         test: /\.json$/,
@@ -86,16 +84,16 @@ module.exports = {
       {
         test: /\.(jpg|png)$/,
         loader: 'file?name=[path][name].[hash].[ext]',
-        include: paths.appImgs
+        include: paths.appImgs,
       },
       {
         test: /\.(ot|svg|woff|woff2)(\?.*)?$/,
         include: [paths.appSrc, paths.appNodeModules],
         loader: 'file',
         query: {
-          name: 'static/media/[name].[hash:8].[ext]'
-        }
-      }
+          name: 'static/media/[name].[hash:8].[ext]',
+        },
+      },
     ]
   }
 };

@@ -3,7 +3,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 const defaultConfig = require('./webpack.common');
 var path = require('path')
 var paths = require('./paths')
-var sassLoaders = require('./sass')
 
 const prodConfig = Object.assign({}, defaultConfig, {
   devtool: false,
@@ -24,8 +23,7 @@ prodConfig.plugins.push(
 prodConfig.module.loaders.push(
   {
     test: /\.scss$/,
-    loaders: sassLoaders,
-    loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss')
+    loader: ExtractTextPlugin.extract('style', 'css!postcss!sass?sourceMap'),
   }
 )
 
