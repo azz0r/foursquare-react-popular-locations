@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "webpack-dashboard -- node ./scripts/start.js",
-    "build": "webpack-dashboard -- node ./scripts/build.js",
+    "start": "NODE_ENV=development node ./scripts/start.js",
+    "build": "NODE_ENV=production webpack-dashboard -- node ./scripts/build.js",
     "test": "cross-env NODE_ENV=test babel-node test/index.js",
     "test:coverage": "cross-env NODE_ENV=test babel-node ./node_modules/istanbul/lib/cli.js cover test/index.js",
     "test:karma": "karma start test/karma.conf.js --single-run",
