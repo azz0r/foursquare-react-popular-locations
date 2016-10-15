@@ -1,43 +1,8 @@
-.foursquare {
+.foursquare { /* Block */
   font-family: normal 13px/140% "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;
+  &__results {} /* Element */
+  &__header {} /* Element */
 }
 
-.foursquare__results {}
-
-.foursquare__header {}
-
-
-/* ---- Search ---- */
-.search {} /* Block */
-.search__field {} /* Element */
-.search__container,
-.search__location {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* ---- Venues ---- */
-.venues {  /* Block */
-  padding-left: 0;
-  padding-right: 0;
-}
-.venues__list {} /* Element */
-.venues__venue {  /* Element */
-  border-radius: none;
-}
-
-.form-control-feedback {
-  right: 20px;
-}
-
-/* ---- Venue ---- */
-.venue {} /* Block */
-
-.venue__name {} /* Element */
-
-.venue__checkins {
-  float : right;
-}
-.venue__rating {
-  float: right;
-}
+@import 'search';
+@import 'venues';

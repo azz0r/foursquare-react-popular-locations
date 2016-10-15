@@ -1,0 +1,19 @@
+/* ---- Venues ---- */
+.venues { /* Block */
+  padding-left: 0;
+  padding-right: 0;
+  &__list {} /* Element */
+  &__venue {  /* Element */
+    border-radius: none;
+  }
+}
+/* ---- Venue ---- */
+.venue { /* Block */
+  &__name {} /* Element */
+  &__checkins { /* Element */
+    float : right;
+  }
+  &__rating { /* Element */
+    float: right;
+  }
+}

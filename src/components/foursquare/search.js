@@ -78,27 +78,25 @@ export default class Search extends React.Component {
     return (
       <div className="search">
         <div className="row">
-          <div className="col-xs-12">
-            <div className="col-xs-11 search__container form-group has-feedback">
-              <input
-                className="form-control search__field"
-                placeholder="Search"
-                name="search__field"
-                id="search__field"
-                type="text"
-                onKeyUp={this.onSearch}
-                onKeyPress={this.onSearch}
-              />
-              <i className="glyphicon glyphicon-search form-control-feedback"></i>
-            </div>
-            <div className="col-xs-1 search__location">
-              <button
-                className="location__button btn btn-success"
-                title="Geo locate me"
-                onClick={this.onGeolocateMe}>
-                <span className="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
-              </button>
-            </div>
+          <div className="col-xs-11 search__container form-group has-feedback">
+            <input
+              className="form-control search__field"
+              placeholder="Search"
+              name="search__field"
+              id="search__field"
+              type="text"
+              onKeyUp={this.onSearch}
+              onKeyPress={this.onSearch}
+            />
+            <i className="glyphicon glyphicon-search search__icon form-control-feedback"></i>
+          </div>
+          <div className="col-xs-1 search__location">
+            <button
+              className="search__location-button btn btn-success"
+              title="Geo locate me"
+              onClick={this.onGeolocateMe}>
+              <span className="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
+            </button>
           </div>
         </div>
         <div className="row">

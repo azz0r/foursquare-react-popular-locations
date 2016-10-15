@@ -1,14 +1,12 @@
-const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var autoprefixer = require('autoprefixer')
 var path = require('path')
 var paths = require('./paths')
-var sassLoaders = require('./sass')
 var DashboardPlugin = require('webpack-dashboard/plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'source-map',
   output: {
     path: paths.appBuild,
     pathinfo: true,
@@ -17,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new DashboardPlugin(),
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('static/css/[name].[id].css'),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.PORT': JSON.stringify(process.env.PORT),
@@ -84,11 +82,6 @@ module.exports = {
         test: /\.json$/,
         include: [paths.appSrc, paths.appNodeModules],
         loader: 'json'
-      },
-      {
-        test: /\.scss$/,
-        loaders: sassLoaders,
-        loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss')
       },
       {
         test: /\.(jpg|png)$/,
