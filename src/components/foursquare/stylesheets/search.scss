@@ -1,12 +1,12 @@
-.search { /* Block */
-  &__field { /* Element */
+.search {
+  &__field {
     padding: inherit 0;
   }
-  &__location { /* Element */
+  &__location {
     float: right;
   }
-  &__container {} /* Element */
-  &__location-button {  /* Element */
+  &__container {}
+  &__location-button { 
     right: 20px;
   }
   &__icon {

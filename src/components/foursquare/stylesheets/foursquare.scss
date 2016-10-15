@@ -1,7 +1,9 @@
-.foursquare { /* Block */
+.foursquare {
   font-family: normal 13px/140% "Helvetica Neue",Helvetica,Verdana,Arial,sans-serif;
-  &__results {} /* Element */
-  &__header {} /* Element */
+  &__results {}
+  &__header {
+    color: #2D5BDE;
+  }
 }
 
 @import 'search';

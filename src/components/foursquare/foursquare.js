@@ -24,7 +24,7 @@ export default class FourSquare extends React.Component {
     return (
       <div className="row foursquare">
         <div className="col-xs-12">
-          <header className="header">
+          <header className="foursquare__header">
             <h1>FourSquare Popular Venues Search</h1>
           </header>
           <div className="foursquare__results">
