@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import FourSquare from '../foursquare/foursquare'
+import Head from '../head/head'
 
-export default class App extends Component {
+export default class Application extends Component {
   render() {
     return (
       <div className="container">
+        <Head />
         {this.props.children}
       </div>
     )

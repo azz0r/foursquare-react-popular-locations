@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { context } from './components/context-holder/default'
 import ContextHolder from './components/context-holder/context-holder'
 import HmrContainer from './components/hrm-container/hrm-container'
+import Head from './components/head/head'
 import { Router, browserHistory } from 'react-router'
 import routes from './routes'
 
