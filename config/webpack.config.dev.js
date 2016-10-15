@@ -18,5 +18,4 @@ const devConfig = Object.assign({}, defaultConfig, {
 devConfig.plugins.push(
   new webpack.HotModuleReplacementPlugin()
 );
-console.log(devConfig)
-module.exports = devConfig;
+module.exports = devConfig
