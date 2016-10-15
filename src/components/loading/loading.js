@@ -7,10 +7,10 @@ export default class Head extends Component {
 
   render() {
     return (
-      <div className="load-3 text-center">
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
+      <div className="loading text-center">
+          <div className="loading__line"></div>
+          <div className="loading__line"></div>
+          <div className="loading__line"></div>
       </div>
     )
   }
