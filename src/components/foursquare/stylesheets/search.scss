@@ -6,14 +6,10 @@
     float: right;
   }
   &__container {} /* Element */
-  &__container {
-    padding-left: 0;
-    padding-right: 0;
-  }
   &__location-button {  /* Element */
     right: 20px;
   }
   &__icon {
-    right: 02px;
+    right: 20px;
   }
 }
