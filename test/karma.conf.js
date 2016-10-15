@@ -1,15 +1,16 @@
-const path = require('path');
-const argv = process.argv.slice(2);
+const path = require('path')
+const defaultConfig = require('../config/webpack.prod')
+const argv = process.argv.slice(2)
 const opts = {
   grep: undefined,
-};
+}
 
 argv.forEach((arg) => {
   if (/^--grep=/.test(arg)) {
-    opts.grep = arg.replace('--grep=', '').trim();
-    opts.coverage = false; // disable if grepping
+    opts.grep = arg.replace('--grep=', '').trim()
+    opts.coverage = false // disable if grepping
   }
-});
+})
 
 // Karma configuration
 module.exports = function(config) {
@@ -41,73 +42,16 @@ module.exports = function(config) {
       'karma-mocha-reporter',
     ],
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
     port: 9876,
     preprocessors: {
       'test/karma.tests.js': ['webpack', 'sourcemap'],
     },
     reporters: ['mocha'],
     singleRun: false,
-    webpack: {
-      devtool: 'inline-source-map',
-      module: {
-        loaders: [
-          {
-            test: /\.jsx?$/,
-            loader: 'babel-loader',
-            include: [
-              path.resolve(__dirname, '../src')
-            ],
-            query: {
-              // https://babeljs.io/docs/usage/options/
-              babelrc: false,
-              presets: [
-                'react',
-                'es2015',
-                'stage-0',
-              ],
-              plugins: [
-                'transform-runtime',
-                'transform-react-constant-elements',
-                'transform-react-inline-elements',
-                'transform-react-remove-prop-types'
-              ],
-            },
-          },
-          {
-            test: /\.json$/,
-            loader: 'json',
-          },
-          {
-            test: /\.css$/,
-            loader: "style-loader!css-loader"
-          },
-        ],
-        noParse: [
-          /node_modules\/sinon\//,
-        ],
-      },
-      resolve: {
-        alias: {
-          'material-ui': path.resolve(__dirname, '../src'),
-          sinon: 'sinon/pkg/sinon.js',
-        },
-        extensions: ['', '.js', '.jsx', '.json'],
-        modulesDirectories: [
-          'node_modules',
-          './'
-        ],
-      },
-      externals: {
-        'jsdom': 'window',
-        'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': 'window',
-        'text-encoding': 'window',
-        'react/addons': true, // For enzyme
-      },
-    },
+    webpack: defaultConfig,
     webpackServer: {
       noInfo: true,
     }
-  });
-};
+  })
+}
