@@ -1,17 +1,17 @@
 const webpack = require('webpack')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-const defaultConfig = require('./webpack.common');
-var path = require('path')
-var paths = require('./paths')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const defaultConfig = require('./webpack.common')
+const path = require('path')
+const paths = require('./paths')
 
 const prodConfig = Object.assign({}, defaultConfig, {
   devtool: false,
   entry: {
-    vendors: ['react', 'react-dom'],
+    vendors: ['react', 'react-dom', 'lodash.debounce', 'react-helmet', 'react-router', 'superagent'],
     polyfill: require.resolve('./polyfills'),
     app: path.join(paths.appSrc, 'index'),
   }
-});
+})
 
 prodConfig.plugins.push(
   new webpack.optimize.UglifyJsPlugin({

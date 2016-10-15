@@ -7,7 +7,7 @@ const defaultConfig = require('./webpack.common')
 const devConfig = Object.assign({}, defaultConfig, {
   devtool: "eval-cheap-module-source-map",
   entry: {
-    vendors: ['react', 'react-dom'],
+    vendors: ['react', 'react-dom', 'lodash.debounce', 'react-helmet', 'react-router', 'superagent'],
     devServer: require.resolve('webpack-dev-server/client') + '?/',
     hot: require.resolve('webpack/hot/dev-server'),
     polyfills: require.resolve('./polyfills'),
