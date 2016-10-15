@@ -6,13 +6,13 @@ const defaultConfig = require('./webpack.common')
 
 const devConfig = Object.assign({}, defaultConfig, {
   devtool: "eval-cheap-module-source-map",
-  entry: [
-    require.resolve('webpack-dev-server/client') + '?/',
-    require.resolve('webpack/hot/dev-server'),
-    require.resolve('./polyfills'),
-    path.join(paths.appSrc, 'index'),
-    path.join(paths.appStylesheets, 'base')
-  ],
+  entry: {
+    vendors: ['react', 'react-dom'],
+    devServer: require.resolve('webpack-dev-server/client') + '?/',
+    hot: require.resolve('webpack/hot/dev-server'),
+    polyfills: require.resolve('./polyfills'),
+    app: path.join(paths.appSrc, 'index'),
+  },
   watch: true,
   stats: true,
   progress: true,

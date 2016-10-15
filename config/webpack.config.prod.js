@@ -6,11 +6,11 @@ var paths = require('./paths')
 
 const prodConfig = Object.assign({}, defaultConfig, {
   devtool: false,
-  entry: [
-    require.resolve('./polyfills'),
-    path.join(paths.appSrc, 'index'),
-    path.join(paths.appStylesheets, 'base'),
-  ]
+  entry: {
+    vendors: ['react', 'react-dom'],
+    polyfill: require.resolve('./polyfills'),
+    app: path.join(paths.appSrc, 'index'),
+  }
 });
 
 prodConfig.plugins.push(
