@@ -9,6 +9,9 @@ export default class Application extends Component {
     return (
       <div className="container">
         <Head />
+        <header className="foursquare__header">
+          <h1>FourSquare Popular Venues Search</h1>
+        </header>
         {this.props.children}
         <Link to={'/'}>
           Search

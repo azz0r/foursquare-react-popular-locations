@@ -7,9 +7,11 @@ export default class PageAbout extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Helmet title="About Us" />
-        About Page
+      <div className="row">
+        <div className="col-xs-12">
+          <Helmet title="About Us" />
+          <h3>About Us</h3>
+        </div>
       </div>
     )
   }
