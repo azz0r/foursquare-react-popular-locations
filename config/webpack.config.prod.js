@@ -20,7 +20,8 @@ module.exports = {
   devtool: 'source-map',
   entry: [
     require.resolve('./polyfills'),
-    path.join(paths.appSrc, 'index')
+    path.join(paths.appSrc, 'index'),
+    path.join(paths.appStylesheets, 'base'),
   ],
   plugins: [
     "jsx-control-statements"
@@ -29,10 +30,10 @@ module.exports = {
     path: paths.appBuild,
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
-    publicPath: publicPath
+    publicPath: publicPath,
   },
   resolve: {
-    extensions: ['', '.js', '.json'],
+    extensions: ['', '.js', '.scss', '.json'],
     alias: {
       // This `alias` section can be safely removed after ejection.
       // We do this because `babel-runtime` may be inside `react-scripts`,
@@ -89,8 +90,8 @@ module.exports = {
         loader: 'json'
       },
       {
-        test: /\.sass$/,
-        loader: ExtractTextPlugin.extract('style', sassLoaders.join('!'))
+        test: /\.scss$/,
+        loaders: sassLoaders
       },
       {
         test: /\.(jpg|png)$/,
@@ -152,6 +153,6 @@ module.exports = {
         screw_ie8: true
       }
     }),
-    new ExtractTextPlugin('static/css/[name].[contenthash:8].css')
+    new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
   ]
 };
