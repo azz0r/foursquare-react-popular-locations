@@ -9,9 +9,7 @@
 
 /* ---- Search ---- */
 .search {} /* Block */
-.search__field { /* Element */
-  margin-left: 20px;
-}
+.search__field {} /* Element */
 
 /* ---- Venues ---- */
 .venues {  /* Block */
@@ -23,6 +21,9 @@
   border-radius: none;
 }
 
+.form-control-feedback {
+  right: 20px;
+}
 
 /* ---- Venue ---- */
 .venue {} /* Block */
