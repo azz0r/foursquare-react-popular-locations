@@ -128,6 +128,11 @@ function runDevServer(port) {
     hot: true, // Note: only CSS is currently hot reloaded
     publicPath: config.output.publicPath,
     quiet: true,
+    devServer: {
+      hot: true
+    },
+    colors: true,
+    clientLogLevel: "error",
     watchOptions: {
       ignored: /node_modules/
     }

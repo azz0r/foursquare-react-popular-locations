@@ -55,7 +55,6 @@ webpack(config).run(function(err, stats) {
       '  ' + chalk.dim(asset.folder + path.sep) + chalk.cyan(asset.name)
     );
   });
-  console.log();
 
   var openCommand = process.platform === 'win32' ? 'start' : 'open';
   var homepagePath = require(paths.appPackageJson).homepage;
@@ -70,18 +69,5 @@ webpack(config).run(function(err, stats) {
     console.log('  git filter-branch -f --prune-empty --subdirectory-filter build');
     console.log('  git push -f origin gh-pages');
     console.log('  git checkout -');
-    console.log();
-  } else {
-    console.log('You can now serve them with any static server.');
-    console.log('For example:');
-    console.log();
-    console.log('  npm install -g pushstate-server');
-    console.log('  pushstate-server build');
-    console.log('  ' + openCommand + ' http://localhost:9000');
-    console.log();
-    console.log(chalk.dim('The project was built assuming it is hosted at the root.'));
-    console.log(chalk.dim('Set the "homepage" field in package.json to override this.'));
-    console.log(chalk.dim('For example, "homepage": "http://user.github.io/project".'));
   }
-  console.log();
 });

@@ -1,7 +1,5 @@
 import React from 'react'
 import App from './components/app/app'
-import FourSquare from './pages/foursquare'
-import About from './pages/about'
 import { IndexRoute, Route } from 'react-router'
 
 export default () => {
@@ -10,15 +8,31 @@ export default () => {
       <Route
         path="/"
         component={App}>
-        <IndexRoute component={FourSquare} />
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], (require) => {
+              callback(null, require('./pages/foursquare').default);
+            })
+          }}
+         />
         <Route path="about">
-          <IndexRoute component={About} />
+          <IndexRoute
+            getComponent={(nextState, callback) => {
+              require.ensure([], (require) => {
+                callback(null, require('./pages/about').default);
+              })
+            }}
+          />
         </Route>
       </Route>
       <Route
         path="*"
-        component={FourSquare}
-      />
+        getComponent={(nextState, callback) => {
+          require.ensure([], (require) => {
+            callback(null, require('./pages/foursquare').default);
+          })
+        }}
+       />
     </Route>
   );
 };

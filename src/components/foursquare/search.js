@@ -70,10 +70,6 @@ export default class Search extends React.Component {
     navigator.geolocation.getCurrentPosition(success, error, options);
   }
 
-  componentWillUnmount() {
-    this.openRequest.abort()
-  }
-
   render() {
     return (
       <div className="search">

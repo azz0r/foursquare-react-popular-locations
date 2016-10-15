@@ -9,9 +9,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   output: {
     path: paths.appBuild,
-    pathinfo: true,
-    filename: 'static/js/[name].[hash:8].js',
-    publicPath: '/'
+    filename: "static/js/[name].[hash:8].bundle.js",
+    chunkFilename: "static/js/[id].[hash:8].chunk.js",
   },
   plugins: [
     new DashboardPlugin(),
